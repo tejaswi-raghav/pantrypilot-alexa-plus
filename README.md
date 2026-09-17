@@ -2,6 +2,8 @@
 
 PantryPilot is a polished, browser-based simulation of a brand experience for Alexa+. A customer asks for a weeknight dinner, Alexa+ coordinates brand tools, and the customer can tune servings or approve missing ingredients without leaving the conversation.
 
+**Live demo:** [pantrypilot-alexa-plus.vercel.app](https://pantrypilot-alexa-plus.vercel.app)
+
 This submission follows the “new to MCP” path in the project brief: it is a self-contained simulated experience, not a production Alexa integration. The interaction model is informed by the [MCP Apps Agent Skills guide](https://apps.extensions.modelcontextprotocol.io/api/#build-with-agent-skills): structured tools drive the same state as the visible interface, tool activity is transparent, and consequential actions require explicit confirmation.
 
 ## What the demo shows
@@ -39,7 +41,7 @@ The repository is a standard Next.js project and can be imported directly into V
 
 ## Agent-facing tools
 
-Browsers that support the proposed imperative WebMCP interface can discover three page-scoped tools:
+Browsers that support the proposed imperative WebMCP interface can discover five page-scoped tools:
 
 | Tool | Purpose | Side effect |
 | --- | --- | --- |
@@ -71,7 +73,7 @@ public/
   favicon.svg    PantryPilot mark
 ```
 
-The project uses React 19, TypeScript, Vinext/Next-compatible routing, Tailwind CSS 4, and Lucide icons. It requires no API key, database, account, or external service.
+The project uses Next.js 16, React 19, TypeScript, Tailwind CSS 4, and Lucide icons. It requires no API key, database, account, or external service.
 
 ## Accessibility and trust
 
