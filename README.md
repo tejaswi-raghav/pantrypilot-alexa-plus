@@ -67,7 +67,7 @@ app/
   globals.css    Responsive visual system and interaction states
   layout.tsx     Page metadata and document shell
 public/
-  grain-bowl.png Original generated recipe photography
+  grain-bowl.jpg Optimized original recipe photography
   favicon.svg    PantryPilot mark
 ```
 
