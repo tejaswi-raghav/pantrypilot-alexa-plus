@@ -415,7 +415,7 @@ export default function Home() {
           <article className="feature-card" aria-live="polite">
             <div className="feature-image">
               <Image
-                src="/grain-bowl.png"
+                src="/grain-bowl.jpg"
                 alt="Colorful roasted vegetable and chickpea bowl with greens and avocado"
                 fill
                 priority
