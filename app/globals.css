@@ -164,6 +164,15 @@ button:disabled { cursor: not-allowed; }
 .trace-card li em { padding: 4px 6px; color: #f6c873; background: rgba(246,200,115,.09); border-radius: 5px; font-size: .55rem; font-style: normal; font-weight: 900; text-transform: uppercase; }
 .trace-toggle { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 7px; width: 100%; margin-top: 5px; padding: 10px; border: 1px solid rgba(255,255,255,.09); color: #b8c4d0; background: transparent; border-radius: 9px; font-size: .68rem; font-weight: 800; text-align: left; }
 .structured-result { max-height: 170px; overflow: auto; margin: 9px 0 0; padding: 11px; border: 1px solid rgba(104,231,226,.12); color: #91d9d7; background: #08111f; border-radius: 9px; font: .62rem/1.5 ui-monospace, monospace; }
+.endpoint-card { display: grid; gap: 11px; }
+.endpoint-heading { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 9px; color: var(--aqua); }
+.endpoint-heading .overline { margin: 0 0 3px; }
+.endpoint-heading strong { display: block; color: #dfe8ef; font-size: .75rem; }
+.endpoint-heading > span { padding: 4px 6px; color: #84c9c7; background: rgba(104,231,226,.08); border-radius: 6px; font: 700 .54rem/1 ui-monospace, monospace; }
+.endpoint-card > p { margin: 0; color: #708196; font-size: .64rem; line-height: 1.45; }
+.endpoint-card > button { display: flex; align-items: center; justify-content: space-between; gap: 8px; width: 100%; padding: 9px 10px; border: 1px solid rgba(104,231,226,.12); color: #b7c5d1; background: #08111f; border-radius: 9px; }
+.endpoint-card code { color: var(--aqua); font: 700 .68rem/1 ui-monospace, monospace; }
+.endpoint-card button span { display: flex; align-items: center; gap: 5px; color: #788a9d; font-size: .6rem; font-weight: 800; }
 .trust-card { display: grid; grid-template-columns: auto 1fr; gap: 10px; margin-top: auto; color: var(--aqua); }
 .trust-card strong { display: block; color: #dbe4eb; font-size: .72rem; }
 .trust-card p { margin: 4px 0 0; color: #6d7e92; font-size: .64rem; line-height: 1.4; }

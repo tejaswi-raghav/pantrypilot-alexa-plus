@@ -7,6 +7,7 @@ import {
   ChevronRight,
   CircleCheck,
   Clock3,
+  Copy,
   Flame,
   Leaf,
   ListChecks,
@@ -17,6 +18,7 @@ import {
   Plus,
   RotateCcw,
   Send,
+  Server,
   ShoppingBag,
   Sparkles,
   Timer,
@@ -156,6 +158,7 @@ export default function Home() {
   const [cookStep, setCookStep] = useState(0);
   const [timerSeconds, setTimerSeconds] = useState(0);
   const [timerRunning, setTimerRunning] = useState(false);
+  const [mcpCopied, setMcpCopied] = useState(false);
 
   const recipe = recipes[recipeIndex];
   const recipeRef = useRef(recipe);
@@ -339,6 +342,13 @@ export default function Home() {
     setTimerRunning(true);
   };
 
+  const copyMcpEndpoint = async () => {
+    await navigator.clipboard.writeText(`${window.location.origin}/mcp`);
+    setMcpCopied(true);
+    toast.success("MCP endpoint copied", { description: "Ready to connect from an MCP client." });
+    window.setTimeout(() => setMcpCopied(false), 1800);
+  };
+
   return (
     <main className="app-shell">
       <Toaster theme="light" richColors position="bottom-center" />
@@ -511,6 +521,12 @@ export default function Home() {
               <ListChecks size={16} /> {showTrace ? "Hide result" : "Inspect result"}<ChevronRight size={15} />
             </button>
             {showTrace && <pre className="structured-result">{JSON.stringify({ recipeId: recipe.id, match: recipe.match / 100, servings, shoppingList: cartItems, purchaseMade: false }, null, 2)}</pre>}
+          </section>
+
+          <section className="rail-card endpoint-card">
+            <div className="endpoint-heading"><Server size={18} /><div><p className="overline">Streamable HTTP</p><strong>Live MCP server</strong></div><span>2025-11-25</span></div>
+            <p>Four server-side tools and one pantry resource are available at the public endpoint.</p>
+            <button onClick={copyMcpEndpoint}><code>/mcp</code><span>{mcpCopied ? <Check size={14} /> : <Copy size={14} />}{mcpCopied ? "Copied" : "Copy URL"}</span></button>
           </section>
 
           <section className="rail-card trust-card">
