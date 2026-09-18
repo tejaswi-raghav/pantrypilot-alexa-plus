@@ -19,6 +19,7 @@ This submission follows the “new to MCP” path in the project brief: it is a 
 - An inspectable JSON result with a clear `purchaseMade: false` boundary
 - Responsive desktop and mobile layouts
 - Browser-native WebMCP tools that agents can discover and call
+- A production-hosted Streamable HTTP MCP endpoint at `/mcp`
 
 ## Run locally
 
@@ -38,6 +39,35 @@ npm run build
 ```
 
 The repository is a standard Next.js project and can be imported directly into Vercel with no environment variables.
+
+## Streamable HTTP MCP server
+
+The same Vercel deployment hosts a stateless MCP server at:
+
+```text
+https://pantrypilot-alexa-plus.vercel.app/mcp
+```
+
+It uses the official MCP TypeScript SDK, negotiates protocol version `2025-11-25`, supports Streamable HTTP POST requests and optional GET streams, validates browser `Origin` headers, and scales safely across serverless instances. No API key is required because the server exposes only simulated demo data.
+
+Server-side capabilities:
+
+| Capability | Purpose |
+| --- | --- |
+| `read_pantry` | Read the simulated household pantry |
+| `find_recipes` | Rank pantry-first recipes by time and preferences |
+| `get_recipe` | Read a complete guided-cooking plan |
+| `build_shopping_list` | Stage missing ingredients after `confirmed: true`; never purchases |
+| `pantry://current` | Read the pantry as an MCP resource |
+
+Test protocol negotiation:
+
+```bash
+curl https://pantrypilot-alexa-plus.vercel.app/mcp \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json, text/event-stream' \
+  --data '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-11-25","capabilities":{},"clientInfo":{"name":"curl","version":"1.0.0"}}}'
+```
 
 ## Agent-facing tools
 
